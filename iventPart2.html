@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>タイトル</title>
+  </head>
+  <body>
+    <pre>
+      <script type="text/javascript">
+        var subwin;
+
+        function win_open(){
+          subwin = window.open('https://www.google.co.jp', 'sample', 'width=600, height=300, scrollbars=yes, location=yes');
+        }
+
+        function win_close(){
+          if(subwin && !subwin.closed) {
+            subwin.close();
+          }
+        }
+      </script>
+      <noscript>
+        javascriptが利用できません
+      </noscript>
+    </pre>
+    <input type="button" value="開く" onclick="win_open()"/>
+    <input type="button" value="閉じる" onclick="win_close()"/>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>タイトル</title>
+  </head>
+  <body>
+    <pre>
+      <script type="text/javascript">
+        // function Animalの定義
+        var Animal = function() {}
+
+        //Animalにプロトタイプwalkを定義
+        Animal.prototype = {
+          walk:function(){document.writeln('とことこ');}
+        };
+
+        //function SuperAnimalの定義
+        var SuperAnimal = function(){}
+        SuperAnimal.prototype = {
+          walk: function() {document.writeln('打打打打だだだだだだだ');}
+        };
+
+        //function Dogを定義
+        var Dog = function() {}
+        //DogにAnimalオブジェクトを継承
+        Dog.prototype = new Animal();
+        var d1 = new Dog();
+        d1.walk();
+
+        //DogにSuperAnimalオブジェクトを継承
+        Dog.prototype = new SuperAnimal();
+        var d2  = new Dog();
+        d1.walk();
+        d2.walk();
+      </script>
+      <noscript>
+        javascriptが利用できません
+      </noscript>
+    </pre>
+  </body>
+</html>

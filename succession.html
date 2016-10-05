@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>タイトル</title>
+  </head>
+  <body>
+    <pre>
+      <script type="text/javascript">
+        // function Animalの定義
+        var Animal = function() {}
+
+        //Animalにプロトタイプwalkを定義
+        Animal.prototype = {
+          walk:function(){document.writeln('とことこ');}
+        };
+
+        //function Dogの定義
+        var Dog = function(){}
+
+        //DogのプロトタイプにAnimalのインスタンスを登録
+        Dog.prototype = new Animal();
+
+        //Dogのプロトタイプにbarkを登録
+        Dog.prototype.bark = function(){document.writeln('わんわん');}
+
+        //dにDogのインスタンスを生成
+        var d = new Dog();
+        //walkを指導
+        d.walk();
+        //barkの指導
+        d.bark();
+      </script>
+      <noscript>
+        javascriptが利用できません
+      </noscript>
+    </pre>
+  </body>
+</html>
