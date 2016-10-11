@@ -7,8 +7,9 @@ $(function(){
             var newImage = dkrm.canvas.toDataURL("image/png");
             var img = new Image();
             img.src = newImage;
-            //$('#a').append('<img src="'+img.src+'" height="256px" width = "256px"/>');
-            
+            $('#a').append('<img id="ss" src="'+img.src+'" height="256px" width = "256px"/><br/>');
+            $('#a').append('<a href="'+img.src+'" download="file.png">Image Download</a>');
+
           }
         }
       }
@@ -18,5 +19,5 @@ $(function(){
 
 //印刷メソッド
 $('#print').click(function(){
-    $('#test').printThis();
+    $('#ss').printThis();
 });
