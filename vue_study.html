@@ -2,16 +2,34 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script type="text/javascript" src="js/vue.js"></script>
-    <script type="text/javascript" src="js/vueStudy.js"></script>
     <title>タイトル</title>
   </head>
   <body>
-    <div id="jjj">
+    <div id="app">
+      <ul>
+        <li v-for="todo in todos">
+          {{ todo.text}}
+        </li>
+      </ul>
+    </div>
+    <!-- <div id="clickIvent">
       <p>
-        {{ message }}
+        {{message}}
       </p>
-      <input v-model="message">
+      <button v-on:click="reverseMessage">反転</button>
+    </div> -->
+
+    <div id="todo">
+      <input v-model="newTodo" v-on:keyup.enter="addTodo" />
+      <ul>
+        <li v-for="todo in todos">
+          <span>{{todo.text}}</span>
+          <button v-on:click="removeTodo($index)">X</button>
+        </li>
+      </ul>
     </div>
   </body>
+  <!-- vue.jsはあと読み込み必須　でないとエラー必死 -->
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" src="js/vueStudy.js"></script>
 </html>
