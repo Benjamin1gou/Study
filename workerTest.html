@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+    <title>タイトル</title>
+    <script id="worker1" type="javascript/worker">
+      this.onmessage = function(event) {
+        this.postMessage('送られたメッセージは ' + event.data + 'ですよー');
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+        <input id="name" name="name"/>
+        <input id="start" name="start" type="button" value="send"/>
+      </form>
+      <script type="text/javascript" src="js/workerStudy.js"></script>
+  </body>
+</html>
