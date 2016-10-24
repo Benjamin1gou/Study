@@ -3,11 +3,14 @@
   var canvasTag = "can";
 
   var canvas;
-  var rect; //四角
+  var rect; //四角　var rect = new fabric.Rect(); みたいにも打てる　setで値を渡す
   var circle; //丸
   var triangle; //三角
 
+
+
   $(function(){
+    //canvas宣言
     canvas = new fabric.Canvas(canvasTag);
 
     //四角の描画
