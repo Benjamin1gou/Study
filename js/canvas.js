@@ -1,5 +1,15 @@
 (function($){
+  var colorTag = "li";
+  var clearTag = "#clear";
+  var saveTag = "#save";
+  var hoverTextTag = "#hover-text";
+  var textHoverTag = "#text-hover";
   var canvasTag = "#can";
+  var moveLeftTag = "#left";
+  var moveTopTag = "#top";
+  var moveBottomTag = "#bottom";
+  var moveRightTag = "#right";
+
   var canvas = $(canvasTag).get(0);
   var ctx = canvas.getContext("2d");
   var imageType = "image/png";
@@ -9,12 +19,10 @@
   var endX;
   var endY;
   var flag = false;
-  var colorTag = "li";
-  var clearTag = "#clear";
-  var saveText = "#save";
-  var hoverTextTag = "#hover-text";
-  var textHoverTag = "#text-hover";
   var hoverText;
+  var textMarginLeft = 100;
+  var textMarginRight = 100;
+  var fontSize = 10;
 
 
   $(function() {
@@ -39,12 +47,28 @@
         $.canvas.clear(e);
     });
 
-    $('#save').click(function() {
+    $(saveTag).click(function() {
 
     });
 
     $(textHoverTag).on('click', function(){
       $.canvas.hover($(hoverTextTag).val());
+    });
+
+    $(moveLeftTag).on('click', function(){
+      $.canvas.move(-10, 0);
+    });
+
+    $(moveTopTag).on('click', function(){
+      $.canvas.move(0, -10);
+    });
+
+    $(moveBottomTag).on('click', function(){
+      $.canvas.move(0, 10);
+    });
+
+    $(moveRightTag).on('click', function(){
+      $.canvas.move(10, 0);
     });
 
   });
@@ -73,14 +97,31 @@
     drawUp: function(){
       flag = false;
     },
-    clear: function(e){
-      e.preventDefault();
+    clear: function(){
+      //e.preventDefault();
       ctx.clearRect(0, 0, $(canvasTag).width(), $(canvasTag).height());
     },
     hover: function(text){
-      ctx.fillText(text, 100, 100);
       hoverText = text;
-    }
+      $.canvas.repaint();
+    },
+    repaint: function(){
+      ctx.font = ""+fontSize+"px  '"+hoverText+"'";
+      ctx.fillText(hoverText, textMarginLeft, textMarginRight);
+    },
+    size: function(size){
+      $.canvas.clear();
+      fontSize = size;
+      $.canvas.hover();
+    },
+    move: function(left, right){
+      textMarginLeft += left;
+      textMarginRight += right;
+      $.canvas.clear();
+      $.canvas.repaint();
+    },
+
+
   };
 
 })(jQuery);
