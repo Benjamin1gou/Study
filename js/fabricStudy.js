@@ -2,14 +2,17 @@
   //id canを格納　※＃は、いらない
   var canvasTag = "can";
 
+
   var canvas;
   var rect; //四角　var rect = new fabric.Rect(); みたいにも打てる　setで値を渡す
   var circle; //丸
   var triangle; //三角
+  var text;
 
 
 
   $(function(){
+    var imageTag = document.getElementById('test');
     //canvas宣言
     canvas = new fabric.Canvas(canvasTag);
 
@@ -25,6 +28,26 @@
     rect.set({ strokeWidth: 5, stroke: 'rgba(100,200,200,0.5)' });
     rect.set('angle', 15).set('flipY', true);
     canvas.renderAll();
+
+    var imgImstancs = new fabric.Image(imageTag,{
+      left: 100,
+      top: 100,
+      angle: 30,
+      opacity: 0.85
+    });
+    canvas.add(imgImstancs);
+
+    fabric.Image.fromURL('img/test.png', function(oImg){
+      canvas.add(oImg);
+    });
+
+    text = new fabric.Text("あいうえおおおおお",{
+      fontFamily: 'Comic Sans'
+    });
+    canvas.add(text);
+
+
+
   });
 
   $.paint = {
