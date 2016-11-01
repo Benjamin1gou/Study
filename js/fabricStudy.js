@@ -1,7 +1,8 @@
 (function($){
   //id canを格納　※＃は、いらない
   var canvasTag = "can";
-
+  var inputTextTag = "#text";
+  var textButtonTag = "#hover-text";
 
   var canvas;
   var rect; //四角　var rect = new fabric.Rect(); みたいにも打てる　setで値を渡す
@@ -46,6 +47,8 @@
     });
     canvas.add(text);
 
+    $.paint.triangle(200, 200, 'blue', 200, 200, 30);
+    $.paint.circle(40, 'green', 150, 150);
 
 
   });
@@ -54,7 +57,7 @@
     rect: function(_left, _top, _color, _width, _height, _angle){
       rect = new fabric.Rect({
         left: _left,      //左マージン
-        top: _top,      　//右マージン
+        top: _top,      　//上マージン
         fill: _color,   　//カラー
         width: _width,    //横幅
         height: _height,  //縦幅
@@ -65,7 +68,7 @@
     rectSet: function(_left, _top, _color, _width, _height, _angle){
       rect.set({
         left: _left,      //左マージン
-        top: _top,      　//右マージン
+        top: _top,      　//上マージン
         fill: _color,   　//カラー
         width: _width,    //横幅
         height: _height,  //縦幅
@@ -75,10 +78,10 @@
     },
     circle: function(_radius, _color, _left, _top){
       circle = new fabric.Circle({
-        radius: _radius,
-        fill: _color,
-        left: _left,
-        top: _top
+        radius: _radius, //大きさ
+        fill: _color, //カラー
+        left: _left, //左マージン
+        top: _top //上マージン
       });
       canvas.add(circle);
     },
@@ -92,6 +95,11 @@
         angle: _angle     //角度
       });
       canvas.add(triangle);
+    },
+    text: function(){
+      text = new fablic.Text(inputTextTag.val(),{
+
+      });
     }
 
 
