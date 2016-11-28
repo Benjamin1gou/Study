@@ -1,0 +1,12 @@
+.paint-css{
+  border: #aaa 1px solid;
+  width: 300px;
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+#can{
+  border: solid 1px #aaa;
+}

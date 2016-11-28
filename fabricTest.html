@@ -5,13 +5,51 @@
     <script type="text/javascript" src="js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="js/fabric.js"></script>
     <script type="text/javascript" src="js/fabricStudy.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/html5reset.css">
+    <link rel="stylesheet" type="text/css" href="css/ultimateTakahiroFabric.css">
+
+
     <title>タイトル</title>
 
   </head>
   <body>
-    <canvas id = "can" width = "1000px" height="500px"></canvas>
-    <img src="img/test.png" id="test" />
-    <input type="text" id="text" />
-    <button id="hover-text">文字載せる</button>
+    <canvas id = "can" width = "1000px" height="400px"></canvas>
+    <!-- <input type="text" id="text" />
+    <button id="hover-text">文字載せる</button> -->
+    <div class="paint-css">
+      <p>四角作成</p>
+      <p>色<input type="text" id="rect-color" /></p>
+      <p>横幅<input type="text" id="rect-width" /></p>
+      <p>縦幅<input type="text" id="rect-height" /></p>
+      <p>角度<input type="text" id="rect-angle" /></p>
+      <input type="button" id="create-rect" value="四角作成">
+    </div>
+    <div class="paint-css">
+      <p>円作成</p>
+      <p>大きさ<input type="text" id="circle-scale" /></p>
+      <p>色<input type="text" id="circle-color" /></p>
+      <input type="button" id="create-circle" value="円作成">
+    </div>
+    <div class="paint-css">
+      <p>三角作成</p>
+      <p>色<input type="text" id="triangle-color" /></p>
+      <p>横幅<input type="text" id="triangle-width" /></p>
+      <p>縦幅<input type="text" id="triangle-height" /></p>
+      <p>角度<input type="text" id="triangle-angle" /></p>
+      <input type="button" id="create-triangle" value="三角形作成">
+    </div>
+    <div class="paint-css">
+      <p>テキスト<input type = "text" id="input-text" /></p>
+      <p>フォント<input type="text" id="text-font" /></p>
+      <p>サイズ<input type="text" id="text-size" /></p>
+      <p>ウェイト<input type="text" id="text-weight" /></p>
+      <p>文字装飾<input type="text" id="text-decoration" /></p>
+      <p>影<input type="text" id="text-shadow" /></p>
+      <p>スタイル<input type="text" id="text-style" /></p>
+      <p>文字列揃え<input type="text" id="text-align" /></p>
+      <p>行間<input type="text" id="text-line-height" /></p>
+      <p>背景色<input type="text" id="text-background-color" /></p>
+      <input type="button" id="create-text" value="文字作成" />
+    </div>
   </body>
 </html>
